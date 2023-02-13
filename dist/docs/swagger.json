@@ -1,0 +1,349 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "mada",
+        "description": "mada apis"
+    },
+    "basePath": "/",
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/add-user": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Add user",
+                "description": "Add user",
+                "operationId": "Add user",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/add-user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        "/view-user/{id}": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "View user",
+                "description": "View user",
+                "operationId": "View user",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/view-user/{id}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        "/update-user/{id}": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Update user",
+                "description": "Update user",
+                "operationId": "Update user",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/view-user/{id}"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/update-user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        "/delete-user/{id}": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "delete user",
+                "description": "delete user",
+                "operationId": "delete user",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/delete-user/{id}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "add-user": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "tushar"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "tushar@yopmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "password",
+                    "example": "12345"
+                }
+            }
+        },
+        "update-user": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "tushar"
+                }
+            }
+        },
+        "view-user/{id}": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "etetetetetetet"
+                }
+            }
+        },
+        "delete-user/{id}": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "etetetetetetet"
+                }
+            }
+        },
+        "responsesOk": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+        },
+        "responsesError": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "object"
+                }
+            }
+        },
+        "loginResponseOk": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "example": "VERIFY_OTP",
+                    "description": "If account not verified then rediect user to otp screen and enter OTP send to his phone number"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "parameters": {
+        "HeaderVersion": {
+            "name": "X-Mada-Version",
+            "in": "header",
+            "description": "X-Mada-Version",
+            "required": true,
+            "type": "string",
+            "default": "1.0.0"
+        },
+        "HeaderLanguage": {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+        },
+        "HeaderPlatform": {
+            "name": "X-Mada-Platform",
+            "in": "header",
+            "description": "android or ios or web",
+            "required": true,
+            "type": "string",
+            "default": "android"
+        },
+        "HeaderAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+        },
+        "HeaderOptionalAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "type": "string"
+        },
+        "HeaderCategory": {
+            "name": "category",
+            "in": "header",
+            "description": "category",
+            "required": true,
+            "type": "string"
+        }
+    }
+}
